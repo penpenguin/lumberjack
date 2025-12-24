@@ -1,0 +1,48 @@
+{
+  "name": "lumberjack",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "out/main/index.js",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "minimatch": "^10.0.1",
+    "node-sqlite3-wasm": "^0.7.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "@types/node": "^22.10.2",
+    "@types/minimatch": "^5.1.2",
+    "@typescript-eslint/eslint-plugin": "^8.18.0",
+    "@typescript-eslint/parser": "^8.18.0",
+    "electron": "^33.2.0",
+    "electron-vite": "^2.0.0",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.2",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.8"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx,js,jsx,json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}

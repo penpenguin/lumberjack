@@ -1,4 +1,4 @@
-# lumberjack
+# Nativox Translate
 
 ローカル完結のSDLCフロー実行/可視化ツール（Electron + WSLg前提）。
 

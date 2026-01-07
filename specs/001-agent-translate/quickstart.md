@@ -12,6 +12,7 @@ Translate selected text via a global shortcut and view results with history.
    - Target language
    - Back-translation toggle (optional)
 3. In any app, select text and press the configured shortcut.
+   - If the shortcut doesn't respond, check for conflicts with other global shortcuts.
 4. Confirm the app displays:
    - Source text (with copy button)
    - Translated text (with copy button)

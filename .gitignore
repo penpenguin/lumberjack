@@ -142,3 +142,17 @@ vite.config.ts.timestamp-*
 .lumberjack/local/
 
 .codex/
+
+# Editor/OS
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+
+# Build outputs
+build/
+
+# Local sqlite db
+test.db

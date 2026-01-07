@@ -28,11 +28,11 @@ description: "Task list for Agent Translation App"
 
 **Purpose**: Project initialization and basic structure
 
-- [ ] T001 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/index.ts
-- [ ] T002 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/index.ts
-- [ ] T003 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/index.ts
-- [ ] T004 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/index.tsx
-- [ ] T005 Export translation modules from /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/index.ts
+- [X] T001 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/index.ts
+- [X] T002 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/index.ts
+- [X] T003 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/index.ts
+- [X] T004 Create translation module barrels in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/index.tsx
+- [X] T005 Export translation modules from /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/index.ts
 
 ---
 
@@ -42,18 +42,18 @@ description: "Task list for Agent Translation App"
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete
 
-- [ ] T006 [P] Unit test for agent exec timeout/parse in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/agentExec.test.ts
-- [ ] T007 [P] Unit test for selection capture flow in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/selectionCapture.test.ts
-- [ ] T008 [P] Unit test for translation service success path in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.test.ts
-- [ ] T009 Define translation domain types in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/types.ts
-- [ ] T010 Define IPC channels and payloads for translation/settings/history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/ipc.ts
-- [ ] T011 Implement agent adapter interface in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentAdapter.ts
-- [ ] T012 Implement agent command executor with JSON stdin/stdout + timeout in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/agentExec.ts
-- [ ] T013 Implement selection capture + clipboard restore in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/selectionCapture.ts
-- [ ] T014 Implement translation orchestration in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
-- [ ] T015 Implement translation IPC handlers in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
-- [ ] T016 Implement preload bridge API for translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
-- [ ] T017 Implement renderer API client for translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
+- [X] T006 [P] Unit test for agent exec timeout/parse in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/agentExec.test.ts
+- [X] T007 [P] Unit test for selection capture flow in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/selectionCapture.test.ts
+- [X] T008 [P] Unit test for translation service success path in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.test.ts
+- [X] T009 Define translation domain types in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/types.ts
+- [X] T010 Define IPC channels and payloads for translation/settings/history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/shared/src/translation/ipc.ts
+- [X] T011 Implement agent adapter interface in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentAdapter.ts
+- [X] T012 Implement agent command executor with JSON stdin/stdout + timeout in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/agentExec.ts
+- [X] T013 Implement selection capture + clipboard restore in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/selectionCapture.ts
+- [X] T014 Implement translation orchestration in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
+- [X] T015 Implement translation IPC handlers in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
+- [X] T016 Implement preload bridge API for translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
+- [X] T017 Implement renderer API client for translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
 
 **Checkpoint**: Foundation ready - user story implementation can now begin in parallel
 
@@ -67,16 +67,16 @@ description: "Task list for Agent Translation App"
 
 ### Tests for User Story 1 (REQUIRED - write first, expect failure) ⚠️
 
-- [ ] T018 [US1] Renderer test for source/translated view + copy + SC-003 timing (shortcut→copy, fake timers) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.test.tsx
-- [ ] T019 [US1] Renderer test for error banner (title/cause/retry) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.test.tsx
+- [X] T018 [US1] Renderer test for source/translated view + copy + SC-003 timing (shortcut→copy, fake timers) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.test.tsx
+- [X] T019 [US1] Renderer test for error banner (title/cause/retry) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.test.tsx
 
 ### Implementation for User Story 1
 
-- [ ] T020 [P] [US1] Implement global shortcut registration in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/shortcut.ts
-- [ ] T021 [US1] Implement shortcut handler to capture selection and invoke translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/translationController.ts
-- [ ] T022 [P] [US1] Implement translation view UI with copy buttons in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
-- [ ] T023 [US1] Wire translation view to IPC API in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/translationStore.ts
-- [ ] T024 [US1] Add top-of-screen error banner with retry action in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
+- [X] T020 [P] [US1] Implement global shortcut registration in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/shortcut.ts
+- [X] T021 [US1] Implement shortcut handler to capture selection and invoke translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/translationController.ts
+- [X] T022 [P] [US1] Implement translation view UI with copy buttons in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
+- [X] T023 [US1] Wire translation view to IPC API in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/translationStore.ts
+- [X] T024 [US1] Add top-of-screen error banner with retry action in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
 
 **Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
 
@@ -90,21 +90,21 @@ description: "Task list for Agent Translation App"
 
 ### Tests for User Story 2 (REQUIRED - write first, expect failure) ⚠️
 
-- [ ] T025 [P] [US2] Unit test for settings application in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/settingsService.test.ts
-- [ ] T026 [P] [US2] Unit test for agent payload with prompts/command in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentAdapter.test.ts
-- [ ] T027 [P] [US2] Unit test for agent config selection rule (isDefault/updatedAt) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentConfigRepository.test.ts
-- [ ] T028 [P] [US2] Renderer test for settings form in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.test.tsx
+- [X] T025 [P] [US2] Unit test for settings application in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/settingsService.test.ts
+- [X] T026 [P] [US2] Unit test for agent payload with prompts/command in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentAdapter.test.ts
+- [X] T027 [P] [US2] Unit test for agent config selection rule (isDefault/updatedAt) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentConfigRepository.test.ts
+- [X] T028 [P] [US2] Renderer test for settings form in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.test.tsx
 
 ### Implementation for User Story 2
 
-- [ ] T029 [P] [US2] Implement settings storage (prompts/language/back-translation) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/settingsService.ts
-- [ ] T030 [P] [US2] Implement agent config persistence + selection rule in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentConfigRepository.ts
-- [ ] T031 [US2] Extend IPC handlers for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
-- [ ] T032 [US2] Extend preload bridge API for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
-- [ ] T033 [US2] Extend renderer API client for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
-- [ ] T034 [P] [US2] Implement settings UI (prompts, target language, agent command) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.tsx
-- [ ] T035 [US2] Apply settings + agent command to translation requests in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
-- [ ] T036 [US2] Render back-translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
+- [X] T029 [P] [US2] Implement settings storage (prompts/language/back-translation) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/settingsService.ts
+- [X] T030 [P] [US2] Implement agent config persistence + selection rule in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/agentConfigRepository.ts
+- [X] T031 [US2] Extend IPC handlers for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
+- [X] T032 [US2] Extend preload bridge API for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
+- [X] T033 [US2] Extend renderer API client for settings/agent config in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
+- [X] T034 [P] [US2] Implement settings UI (prompts, target language, agent command) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.tsx
+- [X] T035 [US2] Apply settings + agent command to translation requests in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
+- [X] T036 [US2] Render back-translation in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/TranslationView.tsx
 
 **Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
 
@@ -118,19 +118,19 @@ description: "Task list for Agent Translation App"
 
 ### Tests for User Story 3 (REQUIRED - write first, expect failure) ⚠️
 
-- [ ] T037 [US3] Unit test for history repository CRUD in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.test.ts
-- [ ] T038 [US3] Unit test for history retention limit (last 100 entries) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.test.ts
-- [ ] T039 [US3] Renderer test for history list + selection in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.test.tsx
-- [ ] T040 [US3] Renderer test for reverse chronological ordering in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.test.tsx
+- [X] T037 [US3] Unit test for history repository CRUD in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.test.ts
+- [X] T038 [US3] Unit test for history retention limit (last 100 entries) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.test.ts
+- [X] T039 [US3] Renderer test for history list + selection in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.test.tsx
+- [X] T040 [US3] Renderer test for reverse chronological ordering in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.test.tsx
 
 ### Implementation for User Story 3
 
-- [ ] T041 [P] [US3] Implement SQLite history repository in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.ts
-- [ ] T042 [US3] Append translation results to history (retain last 100, newest first) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
-- [ ] T043 [P] [US3] Implement history UI list in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.tsx
-- [ ] T044 [US3] Extend IPC handlers for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
-- [ ] T045 [US3] Extend preload bridge API for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
-- [ ] T046 [US3] Extend renderer API client for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
+- [X] T041 [P] [US3] Implement SQLite history repository in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/historyRepository.ts
+- [X] T042 [US3] Append translation results to history (retain last 100, newest first) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
+- [X] T043 [P] [US3] Implement history UI list in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/HistoryView.tsx
+- [X] T044 [US3] Extend IPC handlers for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/main/src/translation/ipcHandlers.ts
+- [X] T045 [US3] Extend preload bridge API for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/preload/src/translation.ts
+- [X] T046 [US3] Extend renderer API client for history in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/api.ts
 
 **Checkpoint**: All user stories should now be independently functional
 
@@ -140,11 +140,11 @@ description: "Task list for Agent Translation App"
 
 **Purpose**: Improvements that affect multiple user stories
 
-- [ ] T047 [P] Add translation timing metrics in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
-- [ ] T048 [P] Add performance threshold verification tests (<=3s/<=5s) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/performanceCriteria.test.ts
-- [ ] T049 [P] Add error mapping helpers in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/errors.ts
-- [ ] T050 [P] Update user help text in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.tsx
-- [ ] T051 [P] Update docs for shortcut usage in /home/user/repository/nativox-translate/.worktrees/huge-changes/specs/001-agent-translate/quickstart.md
+- [X] T047 [P] Add translation timing metrics in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/translationService.ts
+- [X] T048 [P] Add performance threshold verification tests (<=3s/<=5s) in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/performanceCriteria.test.ts
+- [X] T049 [P] Add error mapping helpers in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/core/src/translation/errors.ts
+- [X] T050 [P] Update user help text in /home/user/repository/nativox-translate/.worktrees/huge-changes/packages/renderer/src/features/translation/SettingsView.tsx
+- [X] T051 [P] Update docs for shortcut usage in /home/user/repository/nativox-translate/.worktrees/huge-changes/specs/001-agent-translate/quickstart.md
 
 ---
 

@@ -19,7 +19,6 @@
 
 **Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]  
 **Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]  
-**AI Agent(s)**: [e.g., Codex, Claude Code, GeminiCLI or NEEDS CLARIFICATION]  
 **Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]  
 **Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]  
 **Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
@@ -32,14 +31,7 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [ ] TDD plan defined: first failing tests identified per story, Red → Green → Refactor steps noted
-- [ ] Test strategy is unit-first with Vitest + jsdom; E2E only if critical and justified
-- [ ] Package boundaries respected (main/preload/renderer/core/shared) with IPC contracts in shared
-- [ ] Agent integration defined: target agent(s), CLI invocation, selection/fallback behavior
-- [ ] Flow schema changes (if any) follow forward-only rules and preserve unknown fields
-- [ ] Secrets policy and local override rules acknowledged; no secrets in Flow/StateDB
-- [ ] Operational constraints reviewed (WSLg target, CLI auth, StateDB locking, approvals)
-- [ ] Quality gates planned: `npm run test`, `npm run lint`, `npm run format`
+[Gates determined based on constitution file]
 
 ## Project Structure
 

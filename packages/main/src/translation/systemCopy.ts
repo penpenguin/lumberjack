@@ -55,6 +55,22 @@ const defaultRunCommand: RunCommand = (command, args) =>
     })
   })
 
+const isCommandNotFoundError = (error: unknown) => {
+  if (!error || typeof error !== 'object') return false
+  const code = 'code' in error ? String((error as { code?: string }).code) : ''
+  const message = error instanceof Error ? error.message : ''
+  const lowered = message.toLowerCase()
+  return code.toLowerCase() === 'enoent' || lowered.includes('enoent') || lowered.includes('not found')
+}
+
+const buildSystemCopyCommandNotFoundError = (command: string) => {
+  const error = new Error(
+    `System copy command not found: ${command}. Install ${command} to enable the translation shortcut.`
+  )
+  error.name = 'SystemCopyCommandNotFoundError'
+  return error
+}
+
 export const createSystemCopyShortcut = (deps: {
   platform: NodeJS.Platform
   runCommand?: RunCommand
@@ -62,6 +78,13 @@ export const createSystemCopyShortcut = (deps: {
   const runCommand = deps.runCommand ?? defaultRunCommand
   return async () => {
     const { command, args } = getSystemCopyCommand(deps.platform)
-    await runCommand(command, args)
+    try {
+      await runCommand(command, args)
+    } catch (error) {
+      if (isCommandNotFoundError(error)) {
+        throw buildSystemCopyCommandNotFoundError(command)
+      }
+      throw error
+    }
   }
 }

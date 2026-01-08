@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 import { captureSelection } from './selectionCapture'
 
 describe('captureSelection', () => {
@@ -20,5 +20,24 @@ describe('captureSelection', () => {
 
     expect(result.text).toBe('selected')
     expect(clipboard.text).toBe('previous')
+  })
+
+  it('uses primary selection on Linux without invoking the shortcut', async () => {
+    const clipboard = {
+      readText: (type?: 'selection' | 'clipboard') =>
+        type === 'selection' ? 'selected' : 'previous',
+      writeText: vi.fn(),
+    }
+    const sendCopyShortcut = vi.fn().mockResolvedValue(undefined)
+
+    const result = await captureSelection({
+      clipboard,
+      sendCopyShortcut,
+      platform: 'linux',
+    })
+
+    expect(result.text).toBe('selected')
+    expect(sendCopyShortcut).not.toHaveBeenCalled()
+    expect(clipboard.writeText).not.toHaveBeenCalled()
   })
 })

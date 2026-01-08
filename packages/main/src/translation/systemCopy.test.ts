@@ -47,4 +47,20 @@ describe('createSystemCopyShortcut', () => {
       'ctrl+c',
     ])
   })
+
+  it('wraps missing command errors with guidance', async () => {
+    const runCommand = vi.fn().mockRejectedValue(
+      Object.assign(new Error('spawn xdotool ENOENT'), { code: 'ENOENT' })
+    )
+    const sendCopyShortcut = createSystemCopyShortcut({
+      platform: 'linux',
+      runCommand,
+    })
+
+    await expect(sendCopyShortcut()).rejects.toMatchObject({
+      name: 'SystemCopyCommandNotFoundError',
+      message:
+        'System copy command not found: xdotool. Install xdotool to enable the translation shortcut.',
+    })
+  })
 })

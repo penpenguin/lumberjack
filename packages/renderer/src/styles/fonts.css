@@ -1,0 +1,16 @@
+/* Font faces */
+@font-face {
+  font-family: 'Noto Sans CJK JP';
+  src: url('../assets/fonts/NotoSansCJKjp-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans Arabic';
+  src: url('../assets/fonts/NotoSansArabic-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

@@ -71,7 +71,7 @@ type GlobalShortcutLike = {
 }
 
 type ClipboardLike = {
-  readText: () => string
+  readText: (type?: 'selection' | 'clipboard') => string
   writeText: (text: string) => void
 }
 
@@ -198,6 +198,7 @@ const buildDefaultServices = (deps: MainAppDeps): MainAppServices => {
             await sendCopyShortcut()
           },
           settleDelayMs: 50,
+          platform: deps.platform ?? process.platform,
         })
         return { text: selection.text }
       },

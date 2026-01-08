@@ -65,18 +65,6 @@
 
 [Add more user stories as needed, each with an assigned priority]
 
-## Test Strategy (TDD) *(mandatory)*
-
-<!--
-  ACTION REQUIRED: Document the first failing tests for each user story.
-  Default to unit tests with Vitest + jsdom. E2E tests are only allowed for
-  critical flows and must be justified.
--->
-
-- **Unit Tests**: [List first failing unit tests per story, target files in packages/**/src/*.test.ts]
-- **Integration/E2E**: [Only if critical; explain why unit tests are insufficient]
-- **Execution**: `npm run test`
-
 ### Edge Cases
 
 <!--
@@ -111,17 +99,6 @@
 
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]
-
-## Agent Integration *(mandatory)*
-
-<!--
-  ACTION REQUIRED: This project requires agent-driven translation.
-  Specify the target agent(s), invocation contract, and selection/fallback.
--->
-
-- **Target Agent(s)**: [e.g., Codex, Claude Code, GeminiCLI]
-- **Invocation Contract**: [CLI command, stdin/stdout format, error handling]
-- **Selection/Fallback**: [how the agent is chosen; behavior if unavailable]
 
 ## Success Criteria *(mandatory)*
 

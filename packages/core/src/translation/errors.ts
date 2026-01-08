@@ -15,12 +15,24 @@ export const isCommandNotFoundError = (error: unknown) => {
   return message.includes('enoent') || message.includes('not found')
 }
 
+export const isSystemCopyCommandNotFoundError = (error: unknown) => {
+  if (!(error instanceof Error)) return false
+  return error.name === 'SystemCopyCommandNotFoundError'
+}
+
 export const mapTranslationError = (error: unknown): TranslationErrorInfo => {
   const message = getMessage(error)
 
   if (isTimeoutError(error)) {
     return {
       title: 'Translation timed out',
+      cause: message,
+    }
+  }
+
+  if (isSystemCopyCommandNotFoundError(error)) {
+    return {
+      title: 'System copy tool not found',
       cause: message,
     }
   }

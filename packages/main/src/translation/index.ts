@@ -1,4 +1,5 @@
 export * from './agentExec'
+export * from './agentHttpExec'
 export * from './selectionCapture'
 export * from './ipcHandlers'
 export * from './shortcut'

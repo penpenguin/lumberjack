@@ -31,6 +31,14 @@ npm run build
 npm run preview
 ```
 
+## Windows配布ビルド
+
+```
+npm run build:win
+```
+
+生成物は `dist/` に出力されます。
+
 ## テスト
 
 ```

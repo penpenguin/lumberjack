@@ -49,6 +49,7 @@ describe('SettingsView', () => {
       targetLanguage: 'fr',
       backTranslate: true,
       agentTimeoutMs: 60000,
+      endpointUrl: 'http://localhost:11434/v1/chat',
       updatedAt: '2026-01-07T00:00:00.000Z',
     })
     const updateAgentConfig = vi.fn().mockResolvedValue({
@@ -67,6 +68,7 @@ describe('SettingsView', () => {
         targetLanguage: 'es',
         backTranslate: false,
         agentTimeoutMs: 60000,
+        endpointUrl: 'http://localhost:11434/v1/chat',
         updatedAt: '2026-01-07T00:00:00.000Z',
       }),
       updatePromptSettings,
@@ -117,6 +119,9 @@ describe('SettingsView', () => {
     const agentTimeout = document.querySelector(
       '[data-testid="agent-timeout"]'
     ) as HTMLInputElement
+    const endpointUrl = document.querySelector(
+      '[data-testid="endpoint-url"]'
+    ) as HTMLInputElement
     const agentSelect = document.querySelector(
       '[data-testid="agent-select"]'
     ) as HTMLSelectElement
@@ -132,6 +137,7 @@ describe('SettingsView', () => {
     expect(targetLanguage.value).toBe('es')
     expect(backTranslate.checked).toBe(false)
     expect(agentTimeout.value).toBe('60')
+    expect(endpointUrl.value).toBe('http://localhost:11434/v1/chat')
     expect(agentSelect.value).toBe('codex')
     expect(agentCommand.value).toBe('codex')
     expect(agentArgs.value).toBe(
@@ -148,6 +154,8 @@ describe('SettingsView', () => {
       backTranslate.click()
       agentTimeout.value = '90'
       agentTimeout.dispatchEvent(new Event('input', { bubbles: true }))
+      endpointUrl.value = 'http://localhost:11434/v1/custom'
+      endpointUrl.dispatchEvent(new Event('input', { bubbles: true }))
       agentSelect.value = 'claude'
       agentSelect.dispatchEvent(new Event('change', { bubbles: true }))
       agentCommand.value = 'claude-new'
@@ -173,6 +181,7 @@ describe('SettingsView', () => {
         targetLanguage: 'fr',
         backTranslate: true,
         agentTimeoutMs: 90000,
+        endpointUrl: 'http://localhost:11434/v1/custom',
       })
     )
     expect(updateAgentConfig).toHaveBeenCalledWith(

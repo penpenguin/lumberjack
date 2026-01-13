@@ -97,6 +97,40 @@ describe('TranslationView', () => {
     expect(translationStore.getState().lastCopyDurationMs).toBe(5000)
   })
 
+  it('copies non-latin text without losing characters', async () => {
+    const writeText = setupClipboard()
+    const record = {
+      id: 'record-2',
+      createdAt: '2026-01-07T00:00:00.000Z',
+      sourceText: 'こんにちは、世界',
+      translatedText: 'مرحبا بالعالم',
+      targetLanguage: 'ar',
+      status: 'success',
+    }
+
+    window.translationApi = {
+      translate: vi.fn().mockResolvedValue(record),
+    } as unknown as typeof window.translationApi
+
+    await act(async () => {
+      await translationStore.translate({
+        sourceText: 'こんにちは、世界',
+        targetLanguage: 'ar',
+      })
+    })
+
+    renderView()
+
+    const copySource = document.querySelector('[data-testid="copy-source"]')
+    expect(copySource).toBeTruthy()
+
+    await act(async () => {
+      ;(copySource as HTMLButtonElement).click()
+    })
+
+    expect(writeText).toHaveBeenCalledWith('こんにちは、世界')
+  })
+
   it('shows an error banner with retry action', async () => {
     const translateMock = vi
       .fn()

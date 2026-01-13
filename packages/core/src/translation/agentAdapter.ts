@@ -16,6 +16,7 @@ export type AgentInvocation = {
   command: string
   args?: string[]
   payload: AgentPayload
+  endpointUrl?: string
 }
 
 export type AgentTranslationResult = {
@@ -26,7 +27,7 @@ export type AgentTranslationResult = {
 export type AgentAdapter = {
   buildInvocation: (input: {
     request: TranslationRequest
-    settings?: PromptSettings
+    settings?: PromptSettings & { endpointUrl?: string }
     agentConfig: AgentConfig
   }) => AgentInvocation
   parseResponse: (data: unknown) => AgentTranslationResult
@@ -36,6 +37,7 @@ export const defaultAgentAdapter: AgentAdapter = {
   buildInvocation: ({ request, settings, agentConfig }) => ({
     command: agentConfig.command,
     args: agentConfig.args,
+    endpointUrl: settings?.endpointUrl,
     payload: {
       sourceText: request.sourceText,
       targetLanguage: request.targetLanguage,

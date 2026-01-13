@@ -54,6 +54,9 @@
 ## Active Technologies
 - TypeScript 5.7 (ESM) + Electron 33, React 18, electron-vite, node-sqlite3-wasm, zod (001-agent-translate)
 - Local SQLite (node-sqlite3-wasm) (001-agent-translate)
+- TypeScript 5.7 (ESM) + Electron 33, React 18, electron-vite, zod, node-sqlite3-wasm (002-fix-nonlatin-fonts)
+- Local SQLite (node-sqlite3-wasm) - 本件では新規利用なし (002-fix-nonlatin-fonts)
+- Local SQLite (StateDB) (003-windows-build-llm-http)
 
 ## Recent Changes
 - 001-agent-translate: Added TypeScript 5.7 (ESM) + Electron 33, React 18, electron-vite, node-sqlite3-wasm, zod

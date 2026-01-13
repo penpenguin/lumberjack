@@ -15,6 +15,16 @@ export const isCommandNotFoundError = (error: unknown) => {
   return message.includes('enoent') || message.includes('not found')
 }
 
+export const isSystemCopyCommandNotFoundError = (error: unknown) => {
+  if (!(error instanceof Error)) return false
+  return error.name === 'SystemCopyCommandNotFoundError'
+}
+
+export const isAgentHttpExecError = (error: unknown) => {
+  if (!(error instanceof Error)) return false
+  return error.name === 'AgentHttpExecError'
+}
+
 export const mapTranslationError = (error: unknown): TranslationErrorInfo => {
   const message = getMessage(error)
 
@@ -25,9 +35,23 @@ export const mapTranslationError = (error: unknown): TranslationErrorInfo => {
     }
   }
 
+  if (isSystemCopyCommandNotFoundError(error)) {
+    return {
+      title: 'System copy tool not found',
+      cause: message,
+    }
+  }
+
   if (isCommandNotFoundError(error)) {
     return {
       title: 'Agent command not found',
+      cause: message,
+    }
+  }
+
+  if (isAgentHttpExecError(error)) {
+    return {
+      title: 'LLM endpoint error',
       cause: message,
     }
   }

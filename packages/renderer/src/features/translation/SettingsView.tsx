@@ -8,6 +8,7 @@ const defaultSettings: TranslationSettings = {
   targetLanguage: 'en',
   backTranslate: false,
   agentTimeoutMs: 60000,
+  endpointUrl: 'http://localhost:11434/v1/chat',
   updatedAt: new Date(0).toISOString(),
 }
 
@@ -15,6 +16,7 @@ export const SettingsView = () => {
   const [settings, setSettings] = useState<TranslationSettings>(defaultSettings)
   const [agentConfigs, setAgentConfigs] = useState<AgentConfig[]>([])
   const [selectedAgentId, setSelectedAgentId] = useState<string>('')
+  const [endpointError, setEndpointError] = useState<string>('')
 
   useEffect(() => {
     let active = true
@@ -27,6 +29,7 @@ export const SettingsView = () => {
       setAgentConfigs(configs)
       const selected = configs.find((config) => config.isDefault) ?? configs[0] ?? null
       setSelectedAgentId(selected?.agentId ?? '')
+      setEndpointError('')
     }
 
     void load()
@@ -101,7 +104,15 @@ export const SettingsView = () => {
   }
 
   const save = async () => {
-    await translationApi.updatePromptSettings(settings)
+    try {
+      await translationApi.updatePromptSettings(settings)
+      setEndpointError('')
+    } catch (error) {
+      setEndpointError(
+        error instanceof Error ? error.message : 'Endpoint URL is invalid'
+      )
+      return
+    }
     if (!selectedAgent) return
     const updatedAt = new Date().toISOString()
     const nextConfigs = agentConfigs.map((config) => ({
@@ -219,6 +230,28 @@ export const SettingsView = () => {
             }}
           />
         </label>
+      </section>
+
+      <section>
+        <label>
+          LLM endpoint URL
+          <input
+            data-testid="endpoint-url"
+            type="text"
+            value={settings.endpointUrl ?? ''}
+            onInput={(event) => {
+              const value = (event.target as HTMLInputElement).value
+              setSettings((previous) => ({
+                ...previous,
+                endpointUrl: value,
+              }))
+              setEndpointError('')
+            }}
+          />
+        </label>
+        {endpointError ? (
+          <p data-testid="endpoint-error">{endpointError}</p>
+        ) : null}
       </section>
 
       <section>

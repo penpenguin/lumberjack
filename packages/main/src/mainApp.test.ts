@@ -1,3 +1,6 @@
+import { existsSync, mkdtempSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { describe, expect, it, vi } from 'vitest'
 import { translationChannels } from '@shared/translation/ipc'
 import { createMainApp, DEFAULT_SHORTCUT } from './mainApp'
@@ -168,5 +171,35 @@ describe('createMainApp', () => {
     expect(FakeBrowserWindow.instances[0]?.loadFile).toHaveBeenCalledWith(
       '/app/out/main/../renderer/index.html'
     )
+  })
+
+  it('persists settings updates to disk', async () => {
+    const tempDir = mkdtempSync(join(tmpdir(), 'nativox-settings-'))
+    const { deps } = createDeps()
+    deps.app.getPath = vi.fn().mockReturnValue(tempDir)
+
+    const app = createMainApp(deps)
+    await app.start()
+
+    const handler = (deps.ipcMain.handle as unknown as ReturnType<typeof vi.fn>).mock
+      .calls
+      .find(([channel]) => channel === translationChannels.settingsUpdate)?.[1]
+
+    expect(handler).toBeTypeOf('function')
+
+    await (handler as (event: unknown, payload: unknown) => Promise<unknown>)(
+      {},
+      {
+        systemPrompt: 'system',
+        customPrompt: 'custom',
+        targetLanguage: 'ja',
+        backTranslate: false,
+        agentTimeoutMs: 60000,
+        endpointUrl: 'http://localhost:11434/v1/chat',
+        updatedAt: '2026-01-07T00:00:00.000Z',
+      }
+    )
+
+    expect(existsSync(join(tempDir, 'translation-settings.db'))).toBe(true)
   })
 })

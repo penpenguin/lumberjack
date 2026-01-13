@@ -39,6 +39,7 @@ export type TranslationSettings = PromptSettings & {
   targetLanguage: string
   backTranslate: boolean
   agentTimeoutMs: number
+  endpointUrl: string
 }
 
 export type AgentConfig = {

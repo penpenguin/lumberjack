@@ -49,6 +49,7 @@ describe('translationService', () => {
       targetLanguage: 'es',
       backTranslate: false,
       agentTimeoutMs: 60000,
+      endpointUrl: 'http://localhost:11434/v1/chat',
       updatedAt: '2026-01-07T00:00:00.000Z',
     }
     const agentConfig: AgentConfig = {
@@ -101,6 +102,7 @@ describe('translationService', () => {
       targetLanguage: 'es',
       backTranslate: false,
       agentTimeoutMs: 60000,
+      endpointUrl: 'http://localhost:11434/v1/chat',
       updatedAt: '2026-01-07T00:00:00.000Z',
     }
     const agentConfig: AgentConfig = {

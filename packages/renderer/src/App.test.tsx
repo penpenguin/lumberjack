@@ -52,6 +52,7 @@ describe('App', () => {
         targetLanguage: 'en',
         backTranslate: false,
         agentTimeoutMs: 60000,
+        endpointUrl: 'http://localhost:11434/v1/chat',
         updatedAt: '2026-01-07T00:00:00.000Z',
       }),
       listAgentConfigs: vi.fn().mockResolvedValue([
@@ -98,6 +99,7 @@ describe('App', () => {
         targetLanguage: 'en',
         backTranslate: false,
         agentTimeoutMs: 60000,
+        endpointUrl: 'http://localhost:11434/v1/chat',
         updatedAt: '2026-01-07T00:00:00.000Z',
       }),
       listAgentConfigs: vi.fn().mockResolvedValue([

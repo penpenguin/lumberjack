@@ -26,14 +26,14 @@ describe('global styles wiring', () => {
   it('ensures form controls inherit the global font', () => {
     const css = readGlobalCss()
 
-    expect(css).toMatch(/input,\\s*textarea,\\s*select/)
-    expect(css).toMatch(/font(-family)?:\\s*inherit/)
+    expect(css).toMatch(/input,\s*textarea,\s*select/)
+    expect(css).toMatch(/font(-family)?:\s*inherit/)
   })
 
   it('ensures buttons inherit the global font', () => {
     const css = readGlobalCss()
 
-    expect(css).toMatch(/button\\s*\\{/)
-    expect(css).toMatch(/button[\\s\\S]*font(-family)?:\\s*inherit/)
+    expect(css).toMatch(/button\s*\{/)
+    expect(css).toMatch(/button[\s\S]*font(-family)?:\s*inherit/)
   })
 })

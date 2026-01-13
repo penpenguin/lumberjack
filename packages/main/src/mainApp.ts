@@ -17,12 +17,14 @@ import type { TranslationRecord } from '@shared/translation/types'
 import {
   createAgentConfigRepository,
   createHistoryRepository,
+  createSettingsRepository,
   createSettingsService,
   createTranslationService,
   mapTranslationError,
 } from '@core/translation'
 import {
   agentExec,
+  agentHttpExec,
   captureSelection,
   createSystemCopyShortcut,
   createTranslationController,
@@ -148,7 +150,10 @@ const getShortcutRequest = (error: unknown) => {
 
 const buildDefaultServices = (deps: MainAppDeps): MainAppServices => {
   const now = deps.now ?? (() => new Date())
-  const settingsService = createSettingsService({ now })
+  const settingsRepository = createSettingsRepository({
+    dbPath: deps.joinPath(deps.app.getPath('userData'), 'translation-settings.db'),
+  })
+  const settingsService = createSettingsService({ now, repository: settingsRepository })
   const agentConfigRepository = createAgentConfigRepository({
     now,
     initial: createDefaultAgentConfigs(now),
@@ -158,6 +163,15 @@ const buildDefaultServices = (deps: MainAppDeps): MainAppServices => {
   })
   const translationService = createTranslationService({
     executeAgent: async (invocation, timeoutMs) => {
+      if (invocation.endpointUrl && invocation.endpointUrl.trim().length > 0) {
+        const result = await agentHttpExec({
+          endpointUrl: invocation.endpointUrl,
+          payload: invocation.payload,
+          timeoutMs,
+        })
+        return { data: result.data, durationMs: result.durationMs }
+      }
+
       const result = await agentExec({
         command: invocation.command,
         args: invocation.args,
@@ -176,12 +190,11 @@ const buildDefaultServices = (deps: MainAppDeps): MainAppServices => {
     null
 
   const translate = async (payload: TranslateRequestPayload) => {
-    const agentConfig = getAgentConfig()
-    if (!agentConfig || !agentConfig.command.trim()) {
-      throw new Error('Agent command is not configured')
-    }
-
     const settings = settingsService.getSettings()
+    const agentConfig = getAgentConfig()
+    if (!settings.endpointUrl.trim()) {
+      throw new Error('LLM endpoint URL is required')
+    }
     return await translationService.translate({ request: payload, settings, agentConfig })
   }
 
@@ -233,7 +246,10 @@ const buildDefaultServices = (deps: MainAppDeps): MainAppServices => {
     listHistory,
     getHistory,
     handleShortcut,
-    dispose: () => historyRepository.close(),
+    dispose: () => {
+      historyRepository.close()
+      settingsRepository.close()
+    },
   }
 }
 

@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: LLM Endpoint Settings & Execution
+  version: 1.0.0
+  description: |
+    LLM接続先の設定と、設定済みURLに対するLLM操作を表現する契約。
+    接続先URLはHTTP/HTTPSのみ許可され、任意のパス・ポート・localhostを含められる。
+servers:
+  - url: http://localhost
+paths:
+  /settings/llm-endpoint:
+    get:
+      summary: Get current LLM endpoint setting
+      responses:
+        "200":
+          description: Current setting
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LlmEndpointSetting"
+        "404":
+          description: Setting not found
+    put:
+      summary: Update LLM endpoint setting
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [endpointUrl]
+              properties:
+                endpointUrl:
+                  type: string
+                  format: uri
+                  description: Full HTTP/HTTPS URL including optional path and port
+      responses:
+        "200":
+          description: Updated setting
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LlmEndpointSetting"
+        "400":
+          description: Invalid URL or unsupported scheme
+  /llm/execute:
+    post:
+      summary: Execute an LLM request using the configured endpoint URL
+      description: The system forwards the request payload to the configured LLM endpoint.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              description: Pass-through payload for the target LLM endpoint
+      responses:
+        "200":
+          description: LLM response
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Pass-through response from the target LLM endpoint
+        "400":
+          description: LLM endpoint not configured
+        "502":
+          description: Upstream LLM endpoint error or unreachable
+components:
+  schemas:
+    LlmEndpointSetting:
+      type: object
+      required: [endpointUrl, updatedAt]
+      properties:
+        endpointUrl:
+          type: string
+          format: uri
+          description: Full HTTP/HTTPS URL including optional path and port
+        updatedAt:
+          type: string
+          format: date-time
+        validationStatus:
+          type: string
+          enum: [valid, invalid, unchecked]
+        lastErrorMessage:
+          type: string
